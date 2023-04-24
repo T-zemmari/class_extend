@@ -1,3 +1,11 @@
+<?php
+include('includes/funciones_varias.php');
+
+if (isset($_POST['guardar_producto'])) {
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,10 +28,51 @@
 
     <div class="container-fluid" style="padding:0px">
         <nav class="navbar navbar-dark bg-primary">
-            <a class="navbar-brand">Class extended</a>
+            <a class="navbar-brand" style="margin-left:10px">Class extended</a>
         </nav>
     </div>
 
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h3>Nuevo producto</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form>
+                    <div class="form-group">
+                        <label for="nombre_del_producto">Nombre del producto</label>
+                        <input type="text" class="form-control" id="nombre_del_producto" placeholder="Escibe el nombre del producto">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="select_categoria">Categoria</label>
+                                <select class="form-control" id="select_categoria">
+                                    <option value="0">Seleccionar</option>
+                                    <option value="1">Electrónica</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="select_sub_categoria">Sub-categoria</label>
+                                <select class="form-control" id="select_categoria">
+                                    <option value="0">Seleccionar</option>
+                                    <option value="1">Moviles</option>
+                                    <option value="2">Ordenadores</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success mt-5">Guardar nuevo producto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
     <div class="container mt-5">
         <div class="row">
             <div class="col-12">
