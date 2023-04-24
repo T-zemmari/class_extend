@@ -9,16 +9,16 @@ class Product
     protected $fecha_creacion;
     protected $user_id;
     protected $categoria;
-    protected $sub_categria;
+    protected $sub_categoria;
 
-    function __construct($nombre, $categoria,$sub_categria,$fecha_creacion, $cantidad, $user_id)
+    function __construct($nombre, $categoria,$sub_categoria,$fecha_creacion, $cantidad, $user_id)
     {
         $this->nombre = $nombre;
         $this->fecha_creacion = $fecha_creacion;
         $this->cantidad = $cantidad;
         $this->user_id = $user_id;
         $this->categoria = $categoria;
-        $this->sub_categria = $sub_categria;
+        $this->sub_categoria = $sub_categoria;
     }
     function getNombre()
     {
@@ -63,10 +63,10 @@ class Product
     }
     function getSubCategoria()
     {
-        return $this->sub_categria;
+        return $this->sub_categoria;
     }
-    function setSubCatgoria($sub_categria)
+    function setSubCatgoria($sub_categoria)
     {
-        $this->sub_categria = $sub_categria;
+        $this->sub_categoria = $sub_categoria;
     }
 }
