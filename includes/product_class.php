@@ -6,19 +6,19 @@ class Product
     protected $id;
     protected $nombre;
     protected $cantidad;
-    protected $fecha_creacion;
     protected $user_id;
     protected $categoria;
     protected $sub_categoria;
+    protected $sub_subcategoria;
 
-    function __construct($nombre, $categoria, $sub_categoria, $fecha_creacion, $cantidad, $user_id)
+    function __construct($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id)
     {
         $this->nombre = $nombre;
-        $this->fecha_creacion = $fecha_creacion;
         $this->cantidad = $cantidad;
         $this->user_id = $user_id;
         $this->categoria = $categoria;
         $this->sub_categoria = $sub_categoria;
+        $this->sub_subcategoria = $sub_subcategoria;
     }
     function setId($id)
     {
@@ -45,14 +45,7 @@ class Product
     {
         $this->cantidad = $cantidad;
     }
-    function getFechaCreacion()
-    {
-        return $this->fecha_creacion;
-    }
-    function setFechaCreacion($fecha_creacion)
-    {
-        $this->fecha_creacion = $fecha_creacion;
-    }
+
     function getUserId()
     {
         return $this->user_id;
@@ -76,6 +69,14 @@ class Product
     function setSubCategoria($sub_categoria)
     {
         $this->sub_categoria = $sub_categoria;
+    }
+    function getSubSubCategoria()
+    {
+        return $this->sub_categoria;
+    }
+    function setSubSubCategoria($sub_subcategoria)
+    {
+        $this->sub_subcategoria = $sub_subcategoria;
     }
     function guardar_producto()
     {

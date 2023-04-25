@@ -6,11 +6,10 @@ class Ram extends Movil
     protected $id;
     protected $capacidad;
 
-    function __construct($nombre, $categoria, $sub_categoria, $fecha_creacion, $cantidad, $user_id, $marca, $modelo, $capacidad, $precio)
+    function __construct($nombre, $categoria, $sub_categoria, $sub_subcategoria ,$cantidad, $user_id, $marca, $modelo, $capacidad, $precio)
     {
-        parent::__construct($nombre, $categoria, $sub_categoria, $fecha_creacion, $cantidad, $user_id, $marca, $modelo, $precio);
+        parent::__construct($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id,$marca, $modelo, $precio);
         $this->capacidad = $capacidad;
-        $this->precio = $precio;
     }
     function setId($id)
     {
@@ -19,15 +18,6 @@ class Ram extends Movil
     function getId()
     {
         return $this->id;
-    }
-    public function getPrecio()
-    {
-        return $this->precio;
-    }
-
-    public function setPrecio($precio)
-    {
-        $this->precio = $precio;
     }
     public function getCapacidad()
     {
