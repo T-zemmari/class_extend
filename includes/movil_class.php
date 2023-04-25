@@ -42,4 +42,6 @@ class Movil extends Product
     {
         $this->modelo = $modelo;
     }
+
+    
 }
