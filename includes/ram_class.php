@@ -1,15 +1,14 @@
 <?php
 
 
-class Ram extends Product
+class Ram extends Movil
 {
 
     protected $capacidad;
-    protected $precio;
 
     function __construct($nombre, $categoria, $sub_categoria, $fecha_creacion, $cantidad, $user_id, $marca, $modelo, $capacidad, $precio)
     {
-        parent::__construct($nombre, $categoria, $sub_categoria, $fecha_creacion, $cantidad, $user_id, $marca, $modelo);
+        parent::__construct($nombre, $categoria, $sub_categoria, $fecha_creacion, $cantidad, $user_id,$marca,$modelo,$precio);
         $this->capacidad = $capacidad;
         $this->precio = $precio;
     }
@@ -22,7 +21,7 @@ class Ram extends Product
     {
         $this->precio = $precio;
     }
-    public function getapacidad()
+    public function getCapacidad()
     {
         return $this->capacidad;
     }

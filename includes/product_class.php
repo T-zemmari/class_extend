@@ -37,7 +37,7 @@ class Product
     {
         $this->cantidad = $cantidad;
     }
-    function getFechaCrecion()
+    function getFechaCreacion()
     {
         return $this->fecha_creacion;
     }
@@ -53,7 +53,7 @@ class Product
     {
         $this->user_id = $user_id;
     }
-    function getUCategoria()
+    function getCategoria()
     {
         return $this->categoria;
     }
@@ -65,7 +65,7 @@ class Product
     {
         return $this->sub_categoria;
     }
-    function setSubCatgoria($sub_categoria)
+    function setSubCategoria($sub_categoria)
     {
         $this->sub_categoria = $sub_categoria;
     }

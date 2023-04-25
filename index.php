@@ -2,6 +2,17 @@
 include('includes/funciones_varias.php');
 
 if (isset($_POST['guardar_producto'])) {
+    $nombre_ram=$_POST['nombre_ram'];
+    $productoMovil = new Ram($nombre, $categoria, $sub_categoria, $fecha_creacion, $cantidad, $user_id, $marca, $modelo, $capacidad, $precio);
+
+    // Obtener los valores de las propiedades del objeto Ram
+    $nombre = $productoMovil->getNombre();
+    $fechaCreacion = $productoMovil->getFechaCreacion();
+    $cantidad = $productoMovil->getCantidad();
+    $userId = $productoMovil->getUserId();
+    $marca = $productoMovil->getMarca();
+    $modelo = $productoMovil->getModelo();
+    $capacidadRam = $productoMovil->getCapacidad();
 }
 
 ?>
@@ -44,7 +55,7 @@ if (isset($_POST['guardar_producto'])) {
                 <form>
                     <div class="form-group">
                         <label for="nombre_del_producto">Nombre del producto</label>
-                        <input type="text" class="form-control" id="nombre_del_producto" placeholder="Escibe el nombre del producto">
+                        <input type="text" class="form-control" id="nombre_del_producto" placeholder="Escribe el nombre del producto">
                     </div>
                     <div class="row">
                         <div class="col-6">
