@@ -28,7 +28,8 @@ class Ram extends Movil
     {
         $this->capacidad = $capacidad;
     }
-    function guardar_ram()
+
+    function guardar_producto()
     {
         $mensaje = "";
         $respuesta = [];
@@ -49,5 +50,6 @@ class Ram extends Movil
         $respuesta['ram_last_id'] = $id_ram;
         return $respuesta;
     }
+
 
 }

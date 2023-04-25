@@ -12,9 +12,10 @@ if (isset($_POST['btn_guardar_producto'])) {
     $precio = $_POST['precio'];
     $cantidad = $_POST['cantidad'];
     $user_id = "1";
-    $nuevo_producto = new Product($nombre, $categoria, $sub_categoria, $sub_subcategoria,$cantidad, $user_id, $marca, $modelo, $capacidad, $precio);
+    $nuevo_producto = new Ram($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id, $marca, $modelo, $capacidad, $precio);
+    $info_guardar_producto = $nuevo_producto->guardar_producto();
     echo '<pre>';
-    print_r($nuevo_producto);
+    print_r($info_guardar_producto);
     echo '</pre>';
 }
 

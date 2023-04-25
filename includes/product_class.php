@@ -78,27 +78,5 @@ class Product
     {
         $this->sub_subcategoria = $sub_subcategoria;
     }
-    function guardar_producto()
-    {
-        $mensaje = "";
-        $respuesta = [];
-        if (empty($datos)) $mensaje = "Faltan datos";
-        $sql = "INSERT INTO producto SET nombre='" . mysql_esc($this->nombre) . "',user_id='" . mysql_esc($this->user_id) . "',cantidad='" . mysql_esc($this->cantidad) . "',categoria='" . mysql_esc($this->categoria) . "',sub_categoria='" . mysql_esc($this->sub_categoria) . "',fecha_creacion=NOW()";
-        if (mysql_query($sql)) $id_producto = mysql_insert_id();
-        $respuesta['mensaje'] = $mensaje;
-        $respuesta['last_id'] = $id_producto;
-        return $respuesta;
-    }
-    function actualizar_producto()
-    {
-        $mensaje = "";
-        $respuesta = [];
-        if (empty($datos)) $mensaje = "Faltan datos";
-        $sql = "UPDATE producto SET nombre='" . mysql_esc($this->nombre) . "',user_id='" . mysql_esc($this->user_id) . "',cantidad='" . mysql_esc($this->cantidad) . "',categoria='" . mysql_esc($this->categoria) . "',sub_categoria='" . mysql_esc($this->sub_categoria) . "' WHERE id='" . mysql_esc($this->id) . "' ";
-        if (mysql_query($sql)) {
-            $respuesta['mensaje'] = $mensaje;
-            $respuesta['products_id'] = $this->id;
-        }
-        return $respuesta;
-    }
+   
 }
