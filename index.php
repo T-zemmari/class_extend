@@ -146,13 +146,15 @@ if (isset($_POST['btn_guardar_producto'])) {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
                             <th scope="col">Fecha creación</th>
-                            <th scope="col">Ram</th>
+                            <th scope="col">Info Ram</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
+                            <td>---</td>
                             <td>---</td>
                             <td>---</td>
                             <td>---</td>
