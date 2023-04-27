@@ -36,7 +36,7 @@ class Ram extends Movil
         $respuesta = [];
         $id_producto = "";
         $id_ram = "";
-        $sql = "INSERT INTO producto SET nombre='" . mysql_esc($this->nombre) . "',user_id='" . mysql_esc($this->user_id) . "',cantidad='" . mysql_esc($this->cantidad) . "',categoria='" . mysql_esc($this->categoria) . "',sub_categoria='" . mysql_esc($this->sub_categoria) . "',fecha_creacion=NOW()";
+        $sql = "INSERT INTO producto SET nombre='" . mysql_esc($this->nombre) . "',user_id='" . mysql_esc($this->user_id) . "',cantidad='" . mysql_esc($this->cantidad) . "',categoria='" . mysql_esc($this->categoria) . "',sub_categoria='" . mysql_esc($this->sub_categoria) . "',sub_subcategoria='" . mysql_esc($this->sub_subcategoria) . "',fecha_creacion=NOW()";
         if (mysql_query($sql)) {
         }
         $id_producto = mysql_insert_id();

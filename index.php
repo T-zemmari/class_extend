@@ -14,15 +14,11 @@ if (isset($_POST['btn_guardar_producto'])) {
     $user_id = "1";
     $nuevo_producto = new Ram($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id, $marca, $modelo, $capacidad, $precio);
     $info_guardar_producto = $nuevo_producto->guardar_producto();
-    echo '<pre>';
-    print_r($info_guardar_producto);
-    echo '</pre>';
 }
 
-$info_productos=new Ram();
-
-$productos=$info_productos->listar_productos();
-echo '<pre>'; print_r($productos); echo '</pre>';
+$info_productos = new Ram();
+$productos = $info_productos->listar_productos();
+$contador = 0;
 
 ?>
 
@@ -89,7 +85,7 @@ echo '<pre>'; print_r($productos); echo '</pre>';
                                 <label for="select_categoria">Categoria</label>
                                 <select class="form-control" id="select_categoria" name="select_categoria">
                                     <option value="0">Seleccionar</option>
-                                    <option value="1">Electrónica</option>
+                                    <option value="Electrónica">Electrónica</option>
                                 </select>
                             </div>
                         </div>
@@ -98,8 +94,8 @@ echo '<pre>'; print_r($productos); echo '</pre>';
                                 <label for="select_subcategoria">Sub-categoria</label>
                                 <select class="form-control" id="select_subcategoria" name="select_subcategoria">
                                     <option value="0">Seleccionar</option>
-                                    <option value="1">Moviles</option>
-                                    <option value="2">Ordenadores</option>
+                                    <option value="Moviles">Moviles</option>
+                                    <option value="Ordenadores">Ordenadores</option>
                                 </select>
                             </div>
                         </div>
@@ -134,7 +130,7 @@ echo '<pre>'; print_r($productos); echo '</pre>';
                         </div>
                         <div class="col-3">
                             <label for="cantidad">Cantidad</label>
-                            <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Precio">
+                            <input type="decimal" class="form-control" id="cantidad" name="cantidad" placeholder="Precio">
                         </div>
                     </div>
                     <button class="btn btn-success mt-5" name="btn_guardar_producto">Guardar nuevo producto</button>
@@ -151,19 +147,27 @@ echo '<pre>'; print_r($productos); echo '</pre>';
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Sub categoria</th>
+                            <th scope="col">Sub subcategoria</th>
                             <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
                             <th scope="col">Fecha creación</th>
-                            <th scope="col">Info Ram</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>---</td>
-                            <td>---</td>
-                            <td>---</td>
-                            <td>---</td>
-                        </tr>
+                        <?php foreach ($productos as $producto) : ?>
+                            <tr>
+                                <th scope="row"><?= $contador++ ?></th>
+                                <td><?= $producto['nombre'] ?></td>
+                                <td><?= $producto['categoria'] ?></td>
+                                <td><?= $producto['sub_categoria'] ?></td>
+                                <td><?= $producto['precio'] ?></td>
+                                <td><?= $producto['sub_subcategoria'] ?></td>
+                                <td><?= $producto['cantidad'] ?></td>
+                                <td><?= explode(' ', $producto['fecha_creacion'])[0] ?></td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
