@@ -8,7 +8,7 @@ class Movil extends Product
     protected $marca;
     protected $modelo;
 
-    function __construct($nombre, $categoria, $sub_categoria, $sub_subcategoria,  $cantidad, $user_id, $marca, $modelo, $precio)
+    function __construct($nombre="", $categoria="", $sub_categoria="", $sub_subcategoria="",  $cantidad="", $user_id="", $marca="", $modelo="", $precio="")
     {
         parent::__construct($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id);
         $this->marca = $marca;

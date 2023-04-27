@@ -6,7 +6,7 @@ class Ram extends Movil
     protected $id;
     protected $capacidad;
     protected $producto_id;
-    function __construct($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id, $marca, $modelo, $capacidad, $precio)
+    function __construct($nombre="", $categoria="", $sub_categoria="", $sub_subcategoria="", $cantidad="", $user_id="", $marca="", $modelo="", $capacidad="", $precio="")
     {
         parent::__construct($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id, $marca, $modelo, $precio);
         $this->capacidad = $capacidad;
@@ -55,5 +55,26 @@ class Ram extends Movil
         $respuesta['sql'] = $sql;
         $respuesta['sql_2'] = $sql_2;
         return $respuesta;
+    }
+    function listar_productos()
+    {
+        $productos = [];
+        $temp = [];
+        $sql = mysql_query("SELECT DISTINCT(p.id) as pid ,r.id as rid ,p.*,r.* FROM producto p , ram r WHERE p.id=r.producto_id  ORDER BY producto_id DESC");
+        while ($resultado = mysql_fetch_assoc($sql)) :
+            $temp['pid'] = $resultado['pid'];
+            $temp['nombre'] = $resultado['nombre'];
+            $temp['cantidad'] = $resultado['cantidad'];
+            $temp['user_id'] = $resultado['user_id'];
+            $temp['categoria'] = $resultado['categoria'];
+            $temp['sub_categoria'] = $resultado['sub_categoria'];
+            $temp['sub_subcategoria'] = $resultado['sub_subcategoria'];
+            $temp['fecha_creacion'] = $resultado['fecha_creacion'];
+            $temp['rid'] = $resultado['rid'];
+            $temp['capacidad'] = $resultado['capacidad'];
+            $temp['precio'] = $resultado['precio'];
+            $productos[] = $temp;
+        endwhile;
+        return $productos;
     }
 }

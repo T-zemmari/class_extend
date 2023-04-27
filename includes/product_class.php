@@ -11,7 +11,7 @@ class Product
     protected $sub_categoria;
     protected $sub_subcategoria;
 
-    function __construct($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id)
+    function __construct($nombre="", $categoria="", $sub_categoria="" ,$sub_subcategoria="", $cantidad="", $user_id="")
     {
         $this->nombre = $nombre;
         $this->cantidad = $cantidad;

@@ -19,6 +19,11 @@ if (isset($_POST['btn_guardar_producto'])) {
     echo '</pre>';
 }
 
+$info_productos=new Ram();
+
+$productos=$info_productos->listar_productos();
+echo '<pre>'; print_r($productos); echo '</pre>';
+
 ?>
 
 <!DOCTYPE html>
