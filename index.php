@@ -1,6 +1,9 @@
 <?php
 include('includes/funciones_varias.php');
 
+
+$mensaje_faltan_datos = "";
+
 if (isset($_POST['btn_guardar_producto'])) {
     $nombre = $_POST['nombre_del_producto'];
     $marca = $_POST['marca'];
@@ -12,8 +15,13 @@ if (isset($_POST['btn_guardar_producto'])) {
     $precio = $_POST['precio'];
     $cantidad = $_POST['cantidad'];
     $user_id = "1";
-    $nuevo_producto = new Ram($nombre, $categoria, $sub_categoria, $sub_subcategoria, $cantidad, $user_id, $marca, $modelo, $capacidad, $precio);
-    $info_guardar_producto = $nuevo_producto->guardar_producto();
+
+    if (empty($nombre) || empty($marca) || empty($modelo) || empty($categoria) || empty($sub_categoria) || empty($sub_subcategoria) || empty($capacidad) || empty($precio) || empty($cantidad)) {
+        $mensaje_faltan_datos = "Rellena todos los campos";
+    } else {
+        $nuevo_producto = new Ram($nombre, $categoria, $sub_categoria, $sub_categoria, $cantidad, $user_id, $marca, $modelo, $capacidad, $precio);
+        $info_guardar_producto = $nuevo_producto->guardar_producto();
+    }
 }
 
 $info_productos = new Ram();
@@ -38,6 +46,14 @@ $contador = 0;
         padding: 0;
         box-sizing: border-box;
     }
+
+    .custom-correcto {
+        border: 1px solid red !important;
+    }
+
+    .custom-incorrecto {
+        border: 1px solid green !important;
+    }
 </style>
 
 <body>
@@ -48,6 +64,11 @@ $contador = 0;
         </nav>
     </div>
 
+    <div class="row mt-5 p-1">
+        <div class="col-12">
+            <div class="alert alert-danger" style="display:<?= $mensaje_faltan_datos != "" ? '' : 'none' ?>"><?= $mensaje_faltan_datos ?></div>
+        </div>
+    </div>
 
     <div class="container mt-5">
         <div class="row">
@@ -57,24 +78,27 @@ $contador = 0;
         </div>
         <div class="row">
             <div class="col-12">
-                <form action="" method="post">
+                <form action="" method="post" id="form">
                     <div class="row">
                         <div class="col-4">
-                            <div class="form-group">
+                            <div class="form-group" id="contenedor_nombre_producto">
                                 <label for="nombre_del_producto">Nombre del producto</label>
                                 <input type="text" class="form-control" id="nombre_del_producto" name="nombre_del_producto" placeholder="Escribe el nombre del producto">
+                                <small style="color:red" style="display:none" id="nombre_info_validacion">Formato incorrecto</small>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="nombre_del_producto">Marca</label>
-                                <input type="text" class="form-control" id="nombre_del_producto" name="marca" placeholder="Marca">
+                                <label for="marca">Marca</label>
+                                <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca">
+                                <small style="color:red" style="display:none" id="marca_info_validacion">Formato incorrecto</small>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="modelo">Modelo</label>
                                 <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo">
+                                <small style="color:red" style="display:none" id="modelo_info_validacion">Formato incorrecto</small>
                             </div>
                         </div>
                     </div>
@@ -87,6 +111,7 @@ $contador = 0;
                                     <option value="0">Seleccionar</option>
                                     <option value="Electrónica">Electrónica</option>
                                 </select>
+                                <small style="color:red" style="display:none" id="categoria_info_validacion">Debes seleccionar una categoria</small>
                             </div>
                         </div>
                         <div class="col-3">
@@ -97,6 +122,7 @@ $contador = 0;
                                     <option value="Moviles">Moviles</option>
                                     <option value="Ordenadores">Ordenadores</option>
                                 </select>
+                                <small style="color:red" style="display:none" id="subcategoria_info_validacion">Debes seleccionar una subcategoria</small>
                             </div>
                         </div>
                         <div class="col-3">
@@ -109,6 +135,7 @@ $contador = 0;
                                     <option value="GRAFICA">GRAFICA</option>
                                     <option value="FUENTE DE ALIMENTACION">FUENTE DE ALIMENTACIÓN</option>
                                 </select>
+                                <small style="color:red" style="display:none" id="sub_subcategoria_info_validacion">Debes seleccionar una sub-subcategoria</small>
                             </div>
                         </div>
                         <div class="col-3">
@@ -122,15 +149,18 @@ $contador = 0;
                                     <option value="32GB">32GB</option>
                                     <option value="64GB">64GB</option>
                                 </select>
+                                <small style="color:red" style="display:none" id="capacidad_info_validacion">Debes seleccionar una capacidad</small>
                             </div>
                         </div>
                         <div class="col-3">
                             <label for="precio">Precio</label>
-                            <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio">
+                            <input type="decimal" class="form-control" id="precio" name="precio" placeholder="Precio">
+                            <small style="color:red" style="display:none" id="precio_info_validacion">Solo se admiten numeros</small>
                         </div>
                         <div class="col-3">
                             <label for="cantidad">Cantidad</label>
-                            <input type="decimal" class="form-control" id="cantidad" name="cantidad" placeholder="Precio">
+                            <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad">
+                            <small style="color:red" style="display:none" id="capacidad_info_validacion">Solo se admiten numeros</small>
                         </div>
                     </div>
                     <button class="btn btn-success mt-5" name="btn_guardar_producto">Guardar nuevo producto</button>
@@ -174,8 +204,9 @@ $contador = 0;
         </div>
     </div>
 
-
+    <script src="assets/utils/jquery-3-6-4.min.js"></script>
     <script src="assets/bootstrap_v5.3/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/utils/validador_nuevo_producto.js"></script>
 </body>
 
 </html>

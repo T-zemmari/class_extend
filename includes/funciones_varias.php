@@ -5,5 +5,5 @@ include('includes/movil_class.php');
 include('includes/ram_class.php');
 
 
-// Funcion guardar nuevo producto
+// Funciones varias
 
