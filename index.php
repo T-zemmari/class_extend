@@ -76,72 +76,73 @@ $contador = 0;
                 <h3>Nuevo producto</h3>
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col-12">
                 <form action="" method="post" id="form">
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group" id="contenedor_nombre_producto">
-                                <label for="nombre_del_producto">Nombre del producto</label>
-                                <input type="text" class="form-control" id="nombre_del_producto" name="nombre_del_producto" placeholder="Escribe el nombre del producto">
-                                <small style="color:red" style="display:none" id="nombre_info_validacion">Formato incorrecto</small>
+                                <label for="nombre_del_producto" style="font-weight:600">Nombre del producto</label>
+                                <input type="text" class="form-control mt-1" id="nombre_del_producto" name="nombre_del_producto" placeholder="Escribe el nombre del producto">
+                                <small style="color:red;display:none" style="display:none" id="nombre_info_validacion">Formato incorrecto</small>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="marca">Marca</label>
-                                <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca">
-                                <small style="color:red" style="display:none" id="marca_info_validacion">Formato incorrecto</small>
+                                <label for="marca" style="font-weight:600">Marca</label>
+                                <input type="text" class="form-control mt-1" id="marca" name="marca" placeholder="Marca">
+                                <small style="color:red;display:none" style="display:none" id="marca_info_validacion">Formato incorrecto</small>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="modelo">Modelo</label>
-                                <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo">
-                                <small style="color:red" style="display:none" id="modelo_info_validacion">Formato incorrecto</small>
+                                <label for="modelo" style="font-weight:600">Modelo</label>
+                                <input type="text" class="form-control mt-1" id="modelo" name="modelo" placeholder="Modelo">
+                                <small style="color:red;display:none" style="display:none" id="modelo_info_validacion">Formato incorrecto</small>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-3">
+                    <div class="row mt-2">
+                        <div class="col-3 mt-1">
                             <div class="form-group">
-                                <label for="select_categoria">Categoria</label>
-                                <select class="form-control" id="select_categoria" name="select_categoria">
+                                <label for="select_categoria" style="font-weight:600">Categoria</label>
+                                <select class="form-control mt-1" id="select_categoria" name="select_categoria">
                                     <option value="0">Seleccionar</option>
                                     <option value="Electrónica">Electrónica</option>
                                 </select>
-                                <small style="color:red" style="display:none" id="categoria_info_validacion">Debes seleccionar una categoria</small>
+                                <small style="color:red;display:none" style="display:none" id="categoria_info_validacion">Debes seleccionar una categoria</small>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 mt-2">
                             <div class="form-group">
-                                <label for="select_subcategoria">Sub-categoria</label>
-                                <select class="form-control" id="select_subcategoria" name="select_subcategoria">
+                                <label for="select_subcategoria" style="font-weight:600">Sub-categoria</label>
+                                <select class="form-control mt-1" id="select_subcategoria" name="select_subcategoria">
                                     <option value="0">Seleccionar</option>
                                     <option value="Moviles">Moviles</option>
                                     <option value="Ordenadores">Ordenadores</option>
                                 </select>
-                                <small style="color:red" style="display:none" id="subcategoria_info_validacion">Debes seleccionar una subcategoria</small>
+                                <small style="color:red;display:none" style="display:none" id="subcategoria_info_validacion">Debes seleccionar una subcategoria</small>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 mt-2">
                             <div class="form-group">
-                                <label for="select_subsubcategoria">Sub-subcategoria</label>
-                                <select class="form-control" id="select_subsubcategoria" name="select_subsubcategoria">
+                                <label for="select_subsubcategoria" style="font-weight:600">Sub-subcategoria</label>
+                                <select class="form-control mt-1" id="select_subsubcategoria" name="select_subsubcategoria">
                                     <option value="0">Seleccionar</option>
                                     <option value="HDD">HDD</option>
                                     <option value="RAM">RAM</option>
                                     <option value="GRAFICA">GRAFICA</option>
                                     <option value="FUENTE DE ALIMENTACION">FUENTE DE ALIMENTACIÓN</option>
                                 </select>
-                                <small style="color:red" style="display:none" id="sub_subcategoria_info_validacion">Debes seleccionar una sub-subcategoria</small>
+                                <small style="color:red;display:none" id="sub_subcategoria_info_validacion">Debes seleccionar una sub-subcategoria</small>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 mt-2">
                             <div class="form-group">
-                                <label for="select_capacidad">Capacidad</label>
-                                <select class="form-control" id="select_capacidad" name="select_capacidad">
+                                <label for="select_capacidad" style="font-weight:600">Capacidad</label>
+                                <select class="form-control mt-1" id="select_capacidad" name="select_capacidad">
                                     <option value="0">Seleccionar</option>
                                     <option value="4GB">4GB</option>
                                     <option value="8GB">8GB</option>
@@ -149,21 +150,21 @@ $contador = 0;
                                     <option value="32GB">32GB</option>
                                     <option value="64GB">64GB</option>
                                 </select>
-                                <small style="color:red" style="display:none" id="capacidad_info_validacion">Debes seleccionar una capacidad</small>
+                                <small style="color:red;display:none" style="display:none" id="capacidad_info_validacion">Debes seleccionar una capacidad</small>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <label for="precio">Precio</label>
-                            <input type="decimal" class="form-control" id="precio" name="precio" placeholder="Precio">
-                            <small style="color:red" style="display:none" id="precio_info_validacion">Solo se admiten numeros</small>
+                        <div class="col-3 mt-2">
+                            <label for="precio" style="font-weight:600">Precio</label>
+                            <input type="decimal" class="form-control mt-1" id="precio" name="precio" placeholder="Precio">
+                            <small sstyle="color:red;display:none" style="display:none" id="precio_info_validacion">Solo se admiten numeros</small>
                         </div>
-                        <div class="col-3">
-                            <label for="cantidad">Cantidad</label>
-                            <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad">
-                            <small style="color:red" style="display:none" id="capacidad_info_validacion">Solo se admiten numeros</small>
+                        <div class="col-3 mt-2">
+                            <label for="cantidad" style="font-weight:600">Cantidad</label>
+                            <input type="number" class="form-control mt-1" id="cantidad" name="cantidad" placeholder="Cantidad">
+                            <small style="color:red;display:none" style="display:none" id="capacidad_info_validacion">Solo se admiten numeros</small>
                         </div>
                     </div>
-                    <button class="btn btn-success mt-5" name="btn_guardar_producto">Guardar nuevo producto</button>
+                    <button class="btn btn-success mt-4" name="btn_guardar_producto">Guardar nuevo producto</button>
                 </form>
             </div>
         </div>
